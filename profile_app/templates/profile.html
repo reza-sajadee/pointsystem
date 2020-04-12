@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+<link href="{% static '/css/card.css' %}" rel="stylesheet" />
+
+{% endblock header %}
+{% block title %}
+
+Create New Categury
+{% endblock title %}
+
+{% block content %}
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-12">
+        <div class="card card-profile">
+          <div class="card-avatar">
+            <a href="#pablo">
+              <img class="img" src="{%static '/img/new_logo.png'%}">
+            </a>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Player :{{object.first_name}} {{object.last_name}}</h3>
+            <h5 class="card-category">ISF ID : {{object.isf_id}} </h5>
+            <h4 class="card-category">Birthday : {{object.year}}/{{object.mounth}}/{{object.day}}</h4>
+            <h5 class="card-category">Club : {{object.country_names}} | {{object.city_name}} </h5>
+            <h3 class="card-category text-rose"> {{object.club}} </h3>
+           
+          </div>
+          <div class="card-footer text-center">
+            <div class="stats ">
+              <h3>
+                Reward
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            {% for result in results %}
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-5">
+              <article class="material-card
+               {% if result.place == 1 %}     Amber     {% endif %}
+               {% if result.place == 2 %}     Grey      {% endif %}
+               {% if result.place == 3 %}    Orange     {% endif %}
+               {% if result.place  > 3 %}    Purple     {% endif %}
+               ">
+                <h2>
+                  <strong>
+                    {% if result.place == 1 %}     First Place     {% endif %}
+                    {% if result.place == 2 %}     Secend Place    {% endif %}
+                    {% if result.place == 3 %}     Third Place     {% endif %}
+                    {% if result.place > 3  %}     {{result.place}}<small>Th</small> Place     {% endif %}
+                    
+                  </strong>
+
+                  <p>
+                    {{object.first_name}} {{object.last_name}}
+                  </p>
+
+                </h2>
+                <div class="mc-content">
+                  <div class="img-container">
+                    <img class="img-fluid" src="
+                    {% if result.place == 1 %}     {%static '/img/place/1.jpg'%}     {% endif %}
+                    {% if result.place == 2 %}     {%static '/img/place/2.jpg'%}     {% endif %}
+                    {% if result.place == 3 %}     {%static '/img/place/3.jpg'%}     {% endif %}
+                    {% if result.place > 3  %}     {%static '/img/place/3.jpg'%}     {% endif %}
+                    
+                    " alt="" draggable="false"
+                      oncontextmenu="return false;" />
+                  </div>
+                  <div class="mc-description text-dark">
+                    Compatition {{result.compatition.name}} {{result.compatition.point_system_id.name}} level
+                    <br>
+                    Compatition date : {{result.compatition.year}} / {{result.compatition.mounth}} /
+                    {{result.compatition.day}}
+                    <br>
+                    category is {{result.compatition.category_id.name}} | {{result.compatition.category_id.gender}} |
+                    {{result.compatition.category_id.age}}
+                    <br>
+                   
+                  </div>
+                </div>
+                <a class="mc-btn-action ripple">
+                  <i class="fa fa-bars"></i>
+                </a>
+                <div class="mc-footer">
+                  <h4 text-white>
+                    take a {{result.place}} place and {{result.point}} point
+                  </h4>
+                  
+                </div>
+              </article>
+            </div>
+            {% endfor %}
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock content %}
+
+{% block script %}
+<script type="text/javascript" src="{% static '/js/card.js' %}"></script>
+{% endblock script %}

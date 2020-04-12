@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+Register a New Player
+{% endblock title %}
+
+{% block content %}
+
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="card col-10">
+        <div class="card-header card-header-success ">
+          <div class="card-icon" data-header-animation="true">
+            <i class="material-icons">{{icon_name}}</i>
+          </div>
+          <div class="triangle-down"></div>
+          <h4 class="card-title">{{header_title}}</h4>
+          <p class="card-category">{{discribtion}}</p>
+        </div>
+        <div class="card-body">
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              {% for field  in form.visible_fields %}
+              {% if forloop.counter|divisibleby:2 %}
+              <div class="col-6 mt-2">
+                <div class="form-group">
+                  <label class="bmd-label-floating" for="{{ field.auto_id }}">
+                    {{ field.label }}
+                  </label>
+                  {{field }}
+                  {% if field.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    {{ field.errors.as_text}}
+                  </div>
+
+                  {% endif %}
+                </div>
+              </div>
+              {% else %}
+              <div class="col-6 mt-2">
+                <div class="form-group">
+                  <label class="bmd-label-floating" for="{{ field.auto_id }}">
+                    {{ field.label }}
+                  </label>
+                  {{field }}
+                  {% if field.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    {{ field.errors.as_text}}
+                  </div>
+
+                  {% endif %}
+                </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+            {% for field in form.hidden_fields %}{{field}}{% endfor %}
+            <button onclick="md.showNotification('top','right')" class="btn btn-primary pull-cemter">Submit</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}
+Create New Categury
+{% endblock title %}
+
+{% block content %}
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {% for field  in form.visible_fields %}
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating" for="{{ field.auto_id }}">
+                  {{ field.label }}
+                </label>
+                {{field }}
+                {% if field.errors %}
+                <div class="control-label" for="inputError">
+                  {{ field.errors.as_text}}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+           
+          </div>
+          {% endfor %}
+          {% for field in form.hidden_fields %}{{field}}{% endfor %}
+
+          {% for field  in formc.visible_fields %}
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating" for="{{ field.auto_id }}">
+                  {{ field.label }}
+                </label>
+                {{field }}
+                {% if field.errors %}
+                <div class="control-label" for="inputError">
+                  {{ field.errors.as_text}}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+           
+          </div>
+          {% endfor %}
+          {% for field in formc.hidden_fields %}{{field}}{% endfor %}
+
+
+
+          <button onclick="md.showNotification('top','right')" class="btn btn-primary pull-cemter">Submit</button>
+
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+
+   
+
+
+
+
+  </div>
+
+
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,153 @@
+.list-group-flush .list-group-item {
+    border-bottom: solid #ddd 1px;
+}
+
+.nav a{
+	
+	font-size: 1.5em !important;
+}
+
+.jumbotron{
+    background: #eee;
+}
+
+
+/*--------------------------------------------------------------
+# Counter Section
+--------------------------------------------------------------*/
+.counter {
+    padding: 50px 0px;
+}
+.counter .count-card {
+    box-shadow: 25px 27px 10px -24px #eaeaea;
+    padding: 30px;
+    width: 100%;
+    background: #ddd;
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    border-bottom-right-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    z-index: 99999;
+}
+.counter .count-card::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    left: 0px;
+    top: 0px;
+    width: 0px;
+    height: 100%;
+    transition: all 0.3s;
+    z-index: -1;
+}
+.counter .count-card:hover::after {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+.counter .count-card i {
+  display: block;
+  font-size: 30px;
+  color: #4caf50;
+  float: left;
+}
+.counter .count-card span {
+    font-size: 42px;
+    line-height: 24px;
+    display: block;
+    font-weight: 700;
+    color: #607d8b;
+    margin-left: 50px;
+}
+.counter .count-card p {
+    font-size: 14px;
+    text-align: right;
+}
+.counter .count-card h3 {
+    font-size: 20px;
+    margin-top: 36px;
+    text-transform: uppercase;
+    text-align: right;
+    color: #607d8b;
+}
+.counter .count-card a {
+    font-weight: 600;
+    display: block;
+    border-top: 2px dashed #4caf50;
+    margin-top: 20px;
+    padding-top: 20px;
+    color: #4caf50;
+    font-size: 18px;
+    text-decoration: none;
+    text-align: right;
+}
+.counter .count-card a:hover {
+    color: #607d8b;
+}
+
+
+.my-card
+{
+    position:absolute;
+    left:40%;
+    top:-20px;
+    border-radius:50%;
+}
+
+
+/*contact form*/
+.pb-100 {
+	padding-bottom: 100px;
+}
+.pt-100 {
+	padding-top: 100px;
+}
+.mb-100 {
+	margin-bottom: 100px;
+}
+a {
+	text-decoration: none;
+	color: #333;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+.section-title {
+	position: relative;
+}
+.section-title p {
+	font-size: 16px;
+	margin-bottom: 5px;
+	font-weight: 400;
+}
+.section-title h4 {
+	font-size: 40px;
+	font-weight: 600;
+	text-transform: capitalize;
+	position: relative;
+	padding-bottom: 20px;
+	display: inline-block;
+}
+.section-title h4::before {
+	position: absolute;
+	content: "";
+	width: 80px;
+	height: 2px;
+	background-color: #d8d8d8;
+	bottom: 0;
+	left: 50%;
+	margin-left: -40px;
+}
+.section-title h4::after {
+	position: absolute;
+	content: "";
+	width: 50px;
+	height: 2px;
+	background-color: #FF7200;
+	left: 0;
+	bottom: 0;
+	left: 50%;
+	margin-left: -25px;
+}
+
+

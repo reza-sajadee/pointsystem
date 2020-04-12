@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+delete a New Player
+{% endblock title %}
+
+{% block content %}
+
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="card col-10">
+        <div class="card-header card-header-rose ">
+          <div class="card-icon" data-header-animation="true">
+            <i class="material-icons">{{icon_name}}</i>
+          </div>
+          
+          <h4 class="card-title">{{header_title}}</h4>
+          <p class="card-category">Attention !!!</p>
+          
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+           
+            <h3>{{discribtion}}</h3>
+          <input type="submit" value="yes" class="btn btn-danger btn-round pull-right">
+          <a href="../list" class="btn btn-success pull-right btn-round">
+            Cnacel
+          </a>
+
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+
+{% endblock content %}
