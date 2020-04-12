@@ -404,7 +404,7 @@ class Profile(AbstractBaseUser):
     email           = models.EmailField(blank=True, null=True)
     country_names   = CountryField(default="IR",blank_label='(select country)')
     city_name       = models.CharField(max_length=250,null=True,blank=True,choices=cityList,default='Tehran')
-    phone_number    = PhoneField(blank=True,null=True, help_text='+98 912 123 45 67')
+    phone_number    = models.BigIntegerField(blank=True,null=True)
     profile_image   = models.ImageField(upload_to='profile',blank=True, null=True)
     judge           = models.BooleanField(default=False)
     player          = models.BooleanField(default=False)
